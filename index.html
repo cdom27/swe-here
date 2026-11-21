@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Software Engineer(s)</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,500&display=swap"
+            rel="stylesheet"
+        />
+        <script src="script.js" defer></script>
+    </head>
+    <style>
+        :root {
+            background-color: #f3f1e9;
+            color: #000;
+            min-height: 100vh;
+            font-family: sans-serif;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            position: absolute;
+            top: 37%;
+            font-family: "Montagu Slab", serif;
+            font-weight: 500;
+            font-size: 2rem;
+        }
+
+        #hero {
+            position: relative;
+            top: 30%;
+            left: 15%;
+        }
+
+        img {
+            rotate: 175deg;
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
+        }
+
+        a:hover {
+            cursor: pointer;
+            background-color: #e5e2d4;
+        }
+
+        a {
+            background-color: #ece9de;
+            border: none;
+            border-radius: 999px;
+            padding: 0.75rem 1.5rem;
+            transition-property:
+                color, background-color, border-color, outline-color,
+                text-decoration-color, fill, stroke;
+            transition-duration: 400ms;
+            font-size: 0.875rem;
+            text-decoration: none;
+            color: #000;
+        }
+
+        #contact {
+            --contact-size: 1;
+            position: fixed;
+            right: 15%;
+            z-index: 1;
+            font-size: calc(0.875rem * var(--contact-size));
+            padding: calc(0.75rem * var(--contact-size))
+                calc(1.5rem * var(--contact-size));
+            cursor: grab;
+            user-select: none;
+            touch-action: none;
+            -webkit-user-drag: none;
+            transform-origin: center;
+            will-change: left, top, transform;
+        }
+
+        #contact.dragging {
+            cursor: grabbing;
+        }
+
+        #controls {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 2;
+            display: flex;
+            gap: 0.4rem;
+            align-items: center;
+            padding: 0.4rem;
+
+            border-radius: 999px;
+            background: rgb(236 233 222 / 90%);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-0.5rem);
+            transition:
+                opacity 200ms ease,
+                transform 200ms ease;
+        }
+
+        #controls.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        #controls button {
+            min-width: 2.2rem;
+            min-height: 2rem;
+            border: 0;
+            border-radius: 999px;
+            padding: 0.35rem 0.7rem;
+            background: transparent;
+            color: #000;
+            cursor: pointer;
+            font: inherit;
+            font-size: 0.75rem;
+        }
+
+        #controls button:hover,
+        #controls button:focus-visible {
+            background: #e5e2d4;
+            outline: none;
+        }
+    </style>
+
+    <body>
+        <main>
+            <div id="hero">
+                <h1>Software Engineer(s)</h1>
+                <img src="assets/point.gif" draggable="false" />
+            </div>
+
+            <a id="contact" href="mailto:hello@swe.here" draggable="false"
+                >Inquiries</a
+            >
+
+            <div
+                id="controls"
+                aria-label="Contact link controls"
+                aria-hidden="true"
+            >
+                <button id="toggle-motion" type="button" aria-pressed="false">
+                    Pause
+                </button>
+                <button id="reset-contact" type="button">Reset</button>
+                <button
+                    id="smaller-contact"
+                    type="button"
+                    aria-label="Make smaller"
+                >
+                    −
+                </button>
+                <button
+                    id="larger-contact"
+                    type="button"
+                    aria-label="Make bigger"
+                >
+                    +
+                </button>
+            </div>
+        </main>
+    </body>
+</html>
