@@ -5,6 +5,20 @@ const resetContactButton = document.getElementById("reset-contact");
 const smallerContactButton = document.getElementById("smaller-contact");
 const largerContactButton = document.getElementById("larger-contact");
 
+function revealHeading() {
+  document.documentElement.classList.add("fonts-ready");
+}
+
+if (document.fonts) {
+  document.fonts
+    .load('500 2rem "Montagu Slab"')
+    .then(revealHeading)
+    .catch(revealHeading);
+  setTimeout(revealHeading, 2000);
+} else {
+  revealHeading();
+}
+
 contact.addEventListener("dragstart", (event) => {
   event.preventDefault();
 });
