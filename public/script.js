@@ -148,6 +148,7 @@ function moveContact() {
   const distance = Math.hypot(distanceX, distanceY);
 
   if (performance.now() >= fleeDisabledUntil && distance < fleeDistance) {
+    showControls();
     const directionX = distanceX / (distance || 1);
     const directionY = distanceY / (distance || 1);
 
